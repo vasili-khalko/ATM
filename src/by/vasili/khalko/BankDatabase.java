@@ -53,9 +53,9 @@ public class BankDatabase {
         try (FileWriter writer = new FileWriter("src/by/vasili/khalko/resources/bankDatabase.txt")){
             for (Account account: accounts) {
                 String cardNumber = account.getCardNumber();
-                String pin = String.valueOf(account.getPin());
-                String availableBalance = String.valueOf(account.getAvailableBalance());
-                writer.write(String.format("%s $s %s", cardNumber, pin, availableBalance));
+                int pin = account.getPin();
+                int availableBalance = account.getAvailableBalance();
+                writer.write(String.format("%s %d %d", cardNumber, pin, availableBalance));
             }
         } catch (IOException e){
             e.printStackTrace();

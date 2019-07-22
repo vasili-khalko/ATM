@@ -6,12 +6,14 @@ import by.vasili.khalko.transaction.InfoTransaction;
 import by.vasili.khalko.transaction.Transaction;
 import by.vasili.khalko.transaction.WithdrawTransaction;
 
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
 public class ATM {
     public static void main(String[] args){
+        Locale.setDefault(Locale.ENGLISH);
         ATM atm = new ATM();
         atm.run();
     }
