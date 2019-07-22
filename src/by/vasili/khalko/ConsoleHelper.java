@@ -29,6 +29,9 @@ public class ConsoleHelper {
             } catch (IOException e) {
                 e.printStackTrace();
                 continue;
+            } catch (NumberFormatException e){
+                wrongDataMessage();
+                continue;
             }
         }
     }
