@@ -17,8 +17,9 @@ public class BankDatabase {
 
     private Account getAccount(String cardNumber) {
         for (Account currentAccount: accounts) {
-            if (currentAccount.getCardNumber().equals(cardNumber));
-            return currentAccount;
+            if (currentAccount.getCardNumber().equals(cardNumber)) {
+                return currentAccount;
+            }
         }
 
         return null;
@@ -50,12 +51,13 @@ public class BankDatabase {
     }
 
     public void saveToFile(){
+        String lineSeparator = System.getProperty("line.separator");
         try (FileWriter writer = new FileWriter("src/by/vasili/khalko/resources/bankDatabase.txt")){
             for (Account account: accounts) {
                 String cardNumber = account.getCardNumber();
                 int pin = account.getPin();
                 int availableBalance = account.getAvailableBalance();
-                writer.write(String.format("%s %d %d", cardNumber, pin, availableBalance));
+                writer.write(String.format("%s %d %d", cardNumber, pin, availableBalance)+ lineSeparator);
             }
         } catch (IOException e){
             e.printStackTrace();
